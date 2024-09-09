@@ -82,7 +82,6 @@ fetchAPIs = () => {
         .then((response) => response.text())
         .then((result) => {
             result4 = result;
-            console.log("astronomy")
             console.log(result4)
         })
 
@@ -90,8 +89,6 @@ fetchAPIs = () => {
         .then(response => response.json())
         .then(result => {
             result1 = result;
-            console.log("current")
-            console.log(result1)
             setupCurrentWeather(result1);
         })
 
@@ -99,8 +96,6 @@ fetchAPIs = () => {
         .then(response => response.json())
         .then(result => {
             result2 = result;
-            console.log("forecast")
-            console.log(result2)
             setupUpcomingForecast(result2);
         })
 
@@ -108,8 +103,6 @@ fetchAPIs = () => {
         .then(response => response.json())
         .then(result => {
             result3 = result;
-            console.log("history")
-            console.log(result3)
             setupWeatherHistory(result3);
         })
 
