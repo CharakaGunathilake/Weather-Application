@@ -262,7 +262,7 @@ setupUpcomingForecast = (result) => {
 setupWeatherHistory = (result) => {
     let forecastHistory = document.getElementById("forecastHistory");
     let forecastBody = `<div>
-            <table class="h-100 cards position-absolute">
+            <table class="h-100">
                 <th class=" px-4 text-white fw-bold">
                     Time
                 </th>
