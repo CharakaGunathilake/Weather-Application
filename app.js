@@ -193,6 +193,7 @@ setupCurrentWeather = (result) => {
                         <p class="weatherDetails">UV Index</p>
                         <p class="weatherDetails">${result.current.uv}</p>
                     </div>`
+                    
 }
 
 setupUpcomingForecast = (result) => {
