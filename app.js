@@ -15,14 +15,12 @@ unitIcon.innerHTML = `<img  src="https://img.icons8.com/?size=100&id=0SIMPAbeFah
 
 unitSelected = (indexSelected) => {
     if (indexSelected === 1) {
-        console.log("Unit selected celcius");
         unitIcon.innerHTML = `<img  src="https://img.icons8.com/?size=100&id=0SIMPAbeFahi&format=png&color=000000"
         alt="mdo" width="32" height="32" class="rounded-circle">`;
         index = indexSelected;
         getLocation();
 
     } else if (indexSelected === 2) {
-        console.log("Unit selected fahrenheit");
         unitIcon.innerHTML = `<img  src="https://img.icons8.com/?size=100&id=wBbFCxtvnYHT&format=png&color=000000"
         alt="mdo" width="32" height="32" class="rounded-circle">`;
         index = indexSelected;
@@ -49,7 +47,6 @@ getLocation = () => {
 let locationCoord = "";
 showPosition = (position) => {
     locationCoord = position.coords.latitude + "," + position.coords.longitude;
-    console.log(locationCoord);
     setupLocation();
 
 }
@@ -82,7 +79,6 @@ fetchAPIs = () => {
         .then((response) => response.text())
         .then((result) => {
             result4 = result;
-            console.log(result4)
         })
 
     fetch(`http://api.weatherapi.com/v1/current.json?key=5a8794e0f4384d31a9985717240709&q=${searchLocationName}&aqi=no`)
