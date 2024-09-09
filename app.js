@@ -4,11 +4,13 @@ let imperialUnit = "";
 let index;
 let unitIcon = document.getElementById("unitIcon");
 let tempUnit = document.getElementById("tempUnit");
+let searchInput = document.getElementById("search");
 let currentTime = date.getTime();
+const apiKey = "5a8794e0f4384d31a9985717240709";
 let yesterdayTime = currentTime - (24 * 60 * 60 * 1000);
 date.setTime(yesterdayTime);
 date = date.toLocaleDateString();
-document.getElementById("date").placeholder = `${date}`
+document.getElementById("date").placeholder = `${date}`;
 
 unitIcon.innerHTML = `<img  src="https://img.icons8.com/?size=100&id=0SIMPAbeFahi&format=png&color=000000"
     alt="mdo" width="32" height="32" class="rounded-circle">`;
@@ -37,6 +39,7 @@ setInterval(() => {
     fetchAPIs();
 }, 900000)
 
+
 getLocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -44,13 +47,21 @@ getLocation = () => {
         alert("Geolocation is not supported by this browser.");
     }
 }
-let locationCoord = "";
-showPosition = (position) => {
-    locationCoord = position.coords.latitude + "," + position.coords.longitude;
-    setupLocation();
 
+setMapLocation = (latitude, longitude) => {
+    document.getElementById("map").innerHTML = `<iframe src="https://mapa.tutiempo.net/en/#${latitude};${longitude};9"
+    scrolling="no" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"
+    style="width:100%; height:332px; border-radius:18px; overflow:hidden;"></iframe>`
 }
 
+let locationCoord = "";
+showPosition = (position) => {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    locationCoord = latitude + "," + longitude;
+    handleSearch();
+    setMapLocation(latitude, longitude);
+}
 showError = (error) => {
     switch (error.code) {
         case error.PERMISSION_DENIED:
@@ -68,40 +79,46 @@ showError = (error) => {
     }
 }
 
+searchInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("searchBtn").click();
+    }
+});
+
+handleSearch = () => {
+    searchLocationName = searchInput.value != "" ? searchInput.value : locationCoord;
+    date = document.getElementById("date").value != "" ? document.getElementById("date").value : date;
+    fetchAPIs();
+}
 
 fetchAPIs = () => {
     let result1;
     let result2;
     let result3;
 
-    fetch(`https://api.weatherapi.com/v1/current.json?key=5a8794e0f4384d31a9985717240709&q=${searchLocationName}&aqi=no`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchLocationName}&aqi=no`)
         .then(response => response.json())
         .then(result => {
             result1 = result;
             setupCurrentWeather(result1);
+            setMapLocation(result1.location.lat, result.location.lon);
         })
 
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=5a8794e0f4384d31a9985717240709&q=${searchLocationName}&days=6&aqi=no&alerts=yes`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchLocationName}&days=6&aqi=no&alerts=yes`)
         .then(response => response.json())
         .then(result => {
             result2 = result;
             setupUpcomingForecast(result2);
         })
 
-    fetch(`https://api.weatherapi.com/v1/history.json?key=5a8794e0f4384d31a9985717240709&q=${searchLocationName}&dt=${date}`)
+    fetch(`https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${searchLocationName}&dt=${date}`)
         .then(response => response.json())
         .then(result => {
             result3 = result;
             setupWeatherHistory(result3);
 
         })
-
-}
-
-setupLocation = () => {
-    searchLocationName = document.getElementById("search").value != "" ? document.getElementById("search").value : locationCoord;
-    date = document.getElementById("date").value != "" ? document.getElementById("date").value : date;
-    fetchAPIs();
 
 }
 
@@ -162,7 +179,7 @@ setupCurrentWeather = (result) => {
     let currentLocation = document.getElementById("currentLocation");
     let raw = "";
     raw = `<img src="https://img.icons8.com/?size=100&id=BZhTcjGTwoBp&format=png&color=FFFFFF" alt="mdo" width="32" height="32" class="rounded-circle">
-                <p id = "tempUnit" class="fw-bold mx-3 text-white d-flex align-items-end">${result.location.name}:<img src="${result.current.condition.icon}" alt="mdo"
+                <p id = "tempUnit" class="fw-bold mx-2 text-white d-flex align-items-end">${result.location.name}:<img src="${result.current.condition.icon}" alt="mdo"
                 width="42" height="42" class="mx-2"> ${unitRequested(result.current, 0)}&deg</p>
                 <button class="rounded-circle bg-transparent border-0" onclick="refreshPage()"><img src="https://img.icons8.com/?size=100&id=59872&format=png&color=FFFFFF" alt="mdo" width="32" height="32" class="rounded-circle "></button>`;
     currentLocation.innerHTML = raw;

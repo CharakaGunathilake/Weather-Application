@@ -16,7 +16,7 @@
     <div class="container col-12 col-lg-7 pb-5">
         <header class="p-3 mb-3 border-bottom">
             <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2 ">
-                <div id="currentLocation" class="d-flex align-items-center px-3 rounded-5 ">
+                <div id="currentLocation" class="d-flex align-items-center px-2 rounded-5 ">
                 </div>
 
                 <form class="col col-lg-7 mb-lg-0 " role="search">
@@ -25,7 +25,7 @@
                             class="form-control rounded-5 border-0 bg-transparent fw-bold text-white"
                             placeholder="Search" aria-label="Search">
                         <button id="searchBtn" type="button" class="btn btn-primary rounded-5 px-4"
-                            onclick="setupLocation()"></button>
+                            onclick="handleSearch()"></button>
                     </div>
                 </form>
 
@@ -59,10 +59,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-7">
-                <iframe class="rounded-4 w-100"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=79.72040176391603%2C6.845134985283071%2C79.94699478149415%2C6.998844906439478&amp;layer=hot&amp;marker=6.921996203636636%2C79.83369827270508"
-                    height="332.688px"></iframe>
+            <div id="map" class="col-12 col-lg-7">
+                
             </div>
         </div>
 
@@ -90,7 +88,7 @@
                         class="form-control ms-5 me-2 my-2 rounded-5 border-0 bg-transparent fw-bold text-white"
                         placeholder="DD-MM-YYYY" aria-label="Search" style="width: 150px;" onfocus="(this.type='date')"
                         onblur="(this.type='text')">
-                    <button onclick="setupLocation()" class="btn btn-primary rounded-5 my-2"><img
+                    <button onclick="handleSearch()" class="btn btn-primary rounded-5 my-2"><img
                             src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="searchImg"
                             height="22" width="22"></button>
                 </div>
