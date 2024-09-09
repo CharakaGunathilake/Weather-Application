@@ -74,7 +74,7 @@ fetchAPIs = () => {
     let result2;
     let result3;
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=5a8794e0f4384d31a9985717240709&q=${searchLocationName}&aqi=no`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=5a8794e0f4384d31a9985717240709&q=${searchLocationName}&aqi=no`)
         .then(response => response.json())
         .then(result => {
             result1 = result;
