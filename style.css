@@ -111,6 +111,7 @@ body {
 .MultiCarousel .MultiCarousel-inner {
     transition: 1s ease all;
     float: left;
+    
 }
 
 .MultiCarousel .MultiCarousel-inner .item {
