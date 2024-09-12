@@ -261,6 +261,7 @@ setupUpcomingForecast = (result) => {
                     </table>
                 </div>`
     })
+    upcomingForecast.innerHTML = forecastBody;
 }
 
 setupWeatherHistory = (result) => {
@@ -324,6 +325,7 @@ setupWeatherHistory = (result) => {
                                         </table>
                                 </div>`
     }
+    forecastHistory.innerHTML = forecastBody;
 }
 
 
