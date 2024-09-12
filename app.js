@@ -328,11 +328,3 @@ setupWeatherHistory = (result) => {
     }
     forecastHistory.innerHTML = forecastBody;
 }
-
-
-
-
-
-
-
-
