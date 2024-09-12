@@ -261,19 +261,6 @@ setupUpcomingForecast = (result) => {
                     </table>
                 </div>`
     })
-    upcomingForecast.innerHTML = forecastBody;
-    const pages = document.querySelectorAll(".box");
-    const translateAmount = 100;
-    let translate = 0;
-
-    slide = (givenindex) => {
-        translate = translateAmount * (1 - givenindex);
-        pages.forEach(
-            pages => (
-                pages.style.transform = `translateX(${translate}%)`
-            )
-        );
-    }
 }
 
 setupWeatherHistory = (result) => {
@@ -336,19 +323,6 @@ setupWeatherHistory = (result) => {
                                             </tr>
                                         </table>
                                 </div>`
-    }
-    forecastHistory.innerHTML = forecastBody;
-    const pages = document.querySelectorAll(".page");
-    const translateAmount = 100;
-    let translate = 0;
-
-    slide = (givenindex) => {
-        translate = translateAmount * (1 - givenindex);
-        pages.forEach(
-            pages => (
-                pages.style.transform = `translateX(${translate}%)`
-            )
-        );
     }
 }
 
