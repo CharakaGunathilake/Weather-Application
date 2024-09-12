@@ -171,7 +171,7 @@ unitRequested = (object, unitIndex) => {
     }
 }
 
-const dp = document.getElementById('date').setAttribute('max', "2024-09-09");
+const dp = document.getElementById('date').setAttribute('max', date);
 let searchBtn = document.getElementById('searchBtn').innerText = "Search";
 
 setupCurrentWeather = (result) => {
@@ -218,7 +218,7 @@ setupUpcomingForecast = (result) => {
     let upcomingForecast = document.getElementById("upcomingForecast");
     let forecastBody = "";
     result.forecast.forecastday.forEach(element => {
-        forecastBody += `<div class="cards justify-content-between">
+        forecastBody += `<div class="item justify-content-between">
                     <p class="mx-4 mt-2 mb-0 justify-content-start text-white-50">${element.date} | ${element.day.condition.text} <img src=${element.day.condition.icon} alt="mdo"
                     width="32" height="32" class="rounded-circle"></p>
                     <table class="m-3 mt-0">
@@ -278,7 +278,7 @@ setupUpcomingForecast = (result) => {
 
 setupWeatherHistory = (result) => {
     let forecastHistory = document.getElementById("forecastHistory");
-    let forecastBody = `<div>
+    let forecastBody = `<div class = "item">
             <table class="h-100">
                 <th class=" px-4 text-white fw-bold">
                     Time
@@ -309,7 +309,7 @@ setupWeatherHistory = (result) => {
     let element = result.forecast.forecastday;
     for (let index = 0; index < 24; index++) {
         time = `${element[0].hour[index].time}`;
-        forecastBody += `<div class="page">
+        forecastBody += `<div class="item">
                                         <table class="h-100 box">
                                             <th class=" px-4 text-white">
                                                 ${time.substr(11)}
