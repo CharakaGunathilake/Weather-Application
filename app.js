@@ -105,7 +105,7 @@ fetchAPIs = () => {
             setMapLocation(result1.location.lat, result.location.lon);
         })
 
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchLocationName}&days=6&aqi=no&alerts=yes`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchLocationName}&days=3&aqi=no&alerts=yes`)
         .then(response => response.json())
         .then(result => {
             result2 = result;
@@ -218,11 +218,12 @@ setupUpcomingForecast = (result) => {
     let upcomingForecast = document.getElementById("upcomingForecast");
     let forecastBody = "";
     result.forecast.forecastday.forEach(element => {
-        forecastBody += `<div class="item justify-content-between">
+        forecastBody += `
+            <div class="box">
                     <p class="mx-4 mt-2 mb-0 justify-content-start text-white-50">${element.date} | ${element.day.condition.text} <img src=${element.day.condition.icon} alt="mdo"
                     width="32" height="32" class="rounded-circle"></p>
                     <table class="m-3 mt-0">
-                        <tr>
+                        <tr >
                             <td class="ps-2 justify-content-end">
                                 <img src=${element.day.condition.icon}
                                     alt="mdo" width="70" height="70" class="rounded-circle">
@@ -259,14 +260,14 @@ setupUpcomingForecast = (result) => {
                             </td>
                         </tr>
                     </table>
-                </div>`
+            </div>`
     })
     upcomingForecast.innerHTML = forecastBody;
 }
 
 setupWeatherHistory = (result) => {
     let forecastHistory = document.getElementById("forecastHistory");
-    let forecastBody = `<div class = "item">
+    let forecastBody = `<div class = "item me-3">
             <table class="h-100">
                 <th class=" px-4 text-white fw-bold">
                     Time
@@ -297,7 +298,7 @@ setupWeatherHistory = (result) => {
     let element = result.forecast.forecastday;
     for (let index = 0; index < 24; index++) {
         time = `${element[0].hour[index].time}`;
-        forecastBody += `<div class="item">
+        forecastBody += `<div class="item box">
                                         <table class="h-100 box">
                                             <th class=" px-4 text-white">
                                                 ${time.substr(11)}

@@ -29,9 +29,9 @@
                     </div>
                 </form>
 
-                <div class="dropdown text-end">
+                <div class="dropdown text-end cards">
                     <a id="unitIcon" href="#"
-                        class="d-block link-body-emphasis text-decoration-none dropdown-toggle cards p-2"
+                        class="d-block link-body-emphasis text-decoration-none dropdown-toggle p-2"
                         data-bs-toggle="dropdown" aria-expanded="false">
                     </a>
                     <ul class="dropdown-menu text-small">
@@ -69,12 +69,11 @@
         <div class="display col-12">
 
             <div class="overflow-hidden">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div id="upcomingForecast" class="pages gap-2 carousel-inner">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
+                    data-interval="1000">
+                    <div id="upcomingForecast" class="d-flex gap-2">
 
                     </div>
-                    <a class="prev" onclick="slide(0)">&#10094;</a>
-                    <a class="next" onclick="slide(2)">&#10095;</a>
                 </div>
             </div>
         </div>
@@ -82,391 +81,392 @@
         <h3 class="my-4 ps-5 text-white">Forecast History </h3>
 
         <div class="display col-12">
-                <div class="d-flex align-items-center border-bottom mx-4 mb-3">
-                    <input id="date" type="text"
-                        class="form-control ms-5 me-2 my-2 rounded-5 border-0 bg-transparent fw-bold text-white"
-                        placeholder="DD-MM-YYYY" aria-label="Search" style="width: 150px;" onfocus="(this.type='date')"
-                        onblur="(this.type='text')">
-                    <button onclick="handleSearch()" class="btn btn-primary rounded-5 my-2"><img
-                            src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="searchImg"
-                            height="22" width="22"></button>
-                </div>
+            <div class="d-flex align-items-center border-bottom mx-4 mb-3">
+                <input id="date" type="text"
+                    class="form-control ms-5 me-2 my-2 rounded-5 border-0 bg-transparent fw-bold text-white"
+                    placeholder="DD-MM-YYYY" aria-label="Search" style="width: 150px;" onfocus="(this.type='date')"
+                    onblur="(this.type='text')">
+                <button onclick="handleSearch()" class="btn btn-primary rounded-5 my-2"><img
+                        src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="searchImg"
+                        height="22" width="22"></button>
+            </div>
 
-                <div class="container">
-                    <div class="row p-0">
-                        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                            <div id="forecastHistory" class="MultiCarousel-inner px-3">
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="item">
-                                    <table class="h-100">
-                                        <th class=" px-4 text-white">
-                                            ${time.substr(11)}
-                                        </th>
-                                        <tr class="bottom-0">
-                                            <td class=" px-4" style="height: 50%;">
-                                                ${unitRequested(element[0].hour[index], 0)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                ${unitRequested(element[0].hour[index], 3)}&deg
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class=" px-4 ">
-                                                <img id="refreshbtn" src="${element[0].hour[index].condition.icon}" alt="mdo"
-                                                    width="32" height="32" class="rounded-circle mt-2">
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="px-4 text-white">
-                                                ${element[0].hour[index].chance_of_rain}%
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                
+            <div class="container">
+                <div class="row p-0">
+                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"
+                        data-interval="1000">
+                        <div id="forecastHistory" class="MultiCarousel-inner">
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <button class="btn btn-primary leftLst">&#10094;</button>
-                            <button class="btn btn-primary rightLst">&#10095;</button>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="item">
+                                <table class="h-100">
+                                    <th class=" px-4 text-white">
+                                        ${time.substr(11)}
+                                    </th>
+                                    <tr class="bottom-0">
+                                        <td class=" px-4" style="height: 50%;">
+                                            ${unitRequested(element[0].hour[index], 0)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            ${unitRequested(element[0].hour[index], 3)}&deg
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class=" px-4 ">
+                                            <img id="refreshbtn" src="${element[0].hour[index].condition.icon}"
+                                                alt="mdo" width="32" height="32" class="rounded-circle mt-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="px-4 text-white">
+                                            ${element[0].hour[index].chance_of_rain}%
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
                         </div>
+                        <button class="btn btn-primary leftLst">&#10094;</button>
+                        <button class="btn btn-primary rightLst">&#10095;</button>
                     </div>
                 </div>
+            </div>
         </div>
         <h3 class="my-4 ps-5 text-white">Weather Alerts</h3>
 
