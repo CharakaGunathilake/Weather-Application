@@ -24,7 +24,6 @@ body {
     background-color: #144161b3;
     border-radius: 18px;
     transition: 0.6s ease;
-    overflow: hidden;
 }
 
 #refreshbtn {
