@@ -175,7 +175,6 @@ const dp = document.getElementById('date').setAttribute('max', date);
 let searchBtn = document.getElementById('searchBtn').innerText = "Search";
 
 setupCurrentWeather = (result) => {
-    let time = result.location.localtime;
     let currentLocation = document.getElementById("currentLocation");
     let raw = "";
     raw = `<img src="https://img.icons8.com/?size=100&id=BZhTcjGTwoBp&format=png&color=FFFFFF" alt="mdo" width="32" height="32" class="rounded-circle">
