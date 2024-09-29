@@ -5,6 +5,7 @@ body {
     background-attachment: fixed;
 }
 
+
 #currentLocation {
     background-color: #1e3799;
 }
@@ -22,7 +23,6 @@ body {
 
 .cards:hover,.box:hover {
     background-color: #144161b3;
-    border-radius: 18px;
     transition: 0.6s ease;
 }
 

@@ -16,6 +16,7 @@ $(document).ready(function () {
     $(window).resize(function () {
         ResCarouselSize();
     });
+    
     function ResCarouselSize() {
         var incno = 0;
         var dataItems = ("data-items");
